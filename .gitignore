@@ -85,7 +85,4 @@ npm-debug.log*
 !.github/**/*.yml
 !fern/**/*.yml
 revert-dev.js
-
-
-key.pem
-cert.pem
+.yarn/install-state.gz

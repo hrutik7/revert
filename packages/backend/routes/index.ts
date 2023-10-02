@@ -11,7 +11,7 @@ import { metadataService } from '../services/metadata';
 import { accountService } from '../services/Internal/account';
 
 import AuthService from '../services/auth';
-import logError from '../helpers/logger';
+import { logError } from '../helpers/logger';
 import verifyRevertWebhook from '../helpers/verifyRevertWebhook';
 import {
     companyService,
@@ -29,6 +29,8 @@ import discordChatRouter from './v1/chat';
 import { usersService } from '../services/chat/users';
 import { channelService} from '../services/chat/channel';
 import { messageService } from '../services/chat/messages';
+import { fieldMappingService } from './v1/crm/fieldMapping';
+import { propertiesService } from './properties';
 
 const router = express.Router();
 
@@ -130,6 +132,10 @@ register(router, {
         task: taskService,
         user: userService,
         proxy: proxyService,
+        fieldMapping: {
+            fieldMapping: fieldMappingService,
+        },
+        properties: propertiesService,
     },
     connection: connectionService,
     chat: {
