@@ -12982,13 +12982,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"capture-stack-trace@npm:^1.0.0":
-  version: 1.0.2
-  resolution: "capture-stack-trace@npm:1.0.2"
-  checksum: 13295e8176e8de74bcbe0e4fd938bed9eb4204b4cc200210ff46df91cb20b69e86f6ef42f408a59454f8b62e567ef0ee6ee5b5e7e16e686668bc77f2741542b4
-  languageName: node
-  linkType: hard
-
 "case-sensitive-paths-webpack-plugin@npm:^2.3.0, case-sensitive-paths-webpack-plugin@npm:^2.4.0":
   version: 2.4.0
   resolution: "case-sensitive-paths-webpack-plugin@npm:2.4.0"
@@ -14057,42 +14050,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"crelt@npm:^1.0.5":
-  version: 1.0.5
-  resolution: "crelt@npm:1.0.5"
-  checksum: 04a618c5878e12a14a9a328a49ff6e37bed76abb88b72e661c56b5f161d8a9aca133650da6bcbc5224ad1f7f43a69325627f209e92a21002986d52a8f844b367
-  languageName: node
-  linkType: hard
-
-"cron-parser@npm:^4.2.1":
-  version: 4.7.1
-  resolution: "cron-parser@npm:4.7.1"
-  dependencies:
-    luxon: ^3.2.1
-  checksum: 60642d4710c6ba202b781be6c905d68a47ac69fe1b9eaba06a3f7e9950ba58adbb21ae260452b2801d80b2a1f04f142bb847157c5a707fa4b01a5d2c8842828e
-  languageName: node
-  linkType: hard
-
-"cronstrue@npm:^2.11.0":
-  version: 2.23.0
-  resolution: "cronstrue@npm:2.23.0"
-  bin:
-    cronstrue: bin/cli.js
-  checksum: 050140ac6452468d6f9032f18038f41b16968502d411a996efd5d42243cfd882271ff20ed4a3cdb25c45bf8f88beeb0579e45e974a11987401e9d383af2641a8
-  languageName: node
-  linkType: hard
-
-"cross-spawn@npm:7.0.3, cross-spawn@npm:^7.0.0, cross-spawn@npm:^7.0.2, cross-spawn@npm:^7.0.3":
-  version: 7.0.3
-  resolution: "cross-spawn@npm:7.0.3"
-  dependencies:
-    path-key: ^3.1.0
-    shebang-command: ^2.0.0
-    which: ^2.0.1
-  checksum: 671cc7c7288c3a8406f3c69a3ae2fc85555c04169e9d611def9a675635472614f1c0ed0ef80955d5b6d4e724f6ced67f0ad1bb006c2ea643488fcfef994d7f52
-  languageName: node
-  linkType: hard
-
 "cross-spawn@npm:^5.0.1":
   version: 5.1.0
   resolution: "cross-spawn@npm:5.1.0"
@@ -14151,13 +14108,6 @@ __metadata:
     randombytes: ^2.0.0
     randomfill: ^1.0.3
   checksum: c1609af82605474262f3eaa07daa0b2140026bd264ab316d4bf1170272570dbe02f0c49e29407fe0d3634f96c507c27a19a6765fb856fed854a625f9d15618e2
-  languageName: node
-  linkType: hard
-
-"crypto-random-string@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "crypto-random-string@npm:1.0.0"
-  checksum: 6fc61a46c18547b49a93da24f4559c4a1c859f4ee730ecc9533c1ba89fa2a9e9d81f390c2789467afbbd0d1c55a6e96a71e4716b6cd3e77736ed5fced7a2df9a
   languageName: node
   linkType: hard
 
@@ -19364,13 +19314,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-retry-allowed@npm:^1.0.0":
-  version: 1.2.0
-  resolution: "is-retry-allowed@npm:1.2.0"
-  checksum: 50d700a89ae31926b1c91b3eb0104dbceeac8790d8b80d02f5c76d9a75c2056f1bb24b5268a8a018dead606bddf116b2262e5ac07401eb8b8783b266ed22558d
-  languageName: node
-  linkType: hard
-
 "is-root@npm:^2.1.0":
   version: 2.1.0
   resolution: "is-root@npm:2.1.0"
@@ -22348,49 +22291,6 @@ __metadata:
   bin:
     module-deps: bin/cmd.js
   checksum: cccead8f81b77ec621c29c4407978ce50de6f15c7152b54e81b65ff043d4254fd40071e53a3989a36066ff0d3ce9ae9e65f81aed79b3b5397024dbc8be5d68c7
-  languageName: node
-  linkType: hard
-
-"mongodb-connection-string-url@npm:^2.5.4":
-  version: 2.6.0
-  resolution: "mongodb-connection-string-url@npm:2.6.0"
-  dependencies:
-    "@types/whatwg-url": ^8.2.1
-    whatwg-url: ^11.0.0
-  checksum: 1d662f0ecfe96f7a400f625c244b2e52914c98f3562ee7d19941127578b5f8237624433bdcea285a654041b945b518803512989690c74548aec5860c5541c605
-  languageName: node
-  linkType: hard
-
-"mongodb@npm:4.14.0":
-  version: 4.14.0
-  resolution: "mongodb@npm:4.14.0"
-  dependencies:
-    "@aws-sdk/credential-providers": ^3.186.0
-    bson: ^4.7.0
-    mongodb-connection-string-url: ^2.5.4
-    saslprep: ^1.0.3
-    socks: ^2.7.1
-  dependenciesMeta:
-    "@aws-sdk/credential-providers":
-      optional: true
-    saslprep:
-      optional: true
-  checksum: ab3b8f27e99fab4ea0c163067158ad360a161edf9ebf74368b9b561da7b75d23c09282d530cb4e2fac32ea30eae29620e861d837d334ddbdfa50d57240c1bd8e
-  languageName: node
-  linkType: hard
-
-"mongoose@npm:^6.6.5":
-  version: 6.10.0
-  resolution: "mongoose@npm:6.10.0"
-  dependencies:
-    bson: ^4.7.0
-    kareem: 2.5.1
-    mongodb: 4.14.0
-    mpath: 0.9.0
-    mquery: 4.0.3
-    ms: 2.1.3
-    sift: 16.0.1
-  checksum: b6aa9c51d367112d534c54db09c43cd661da52d9b2e9488caba082c771844f84962b7da74564bbfc2e6e6a0b29ed35d75619973f3e1f1d917fbd0a8a3be6a9cd
   languageName: node
   linkType: hard
 
@@ -29620,7 +29520,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"uuid@npm:8.3.2, uuid@npm:^8.0.0, uuid@npm:^8.3.0, uuid@npm:^8.3.2":
+"uuid@npm:8.3.2, uuid@npm:^8.3.2":
   version: 8.3.2
   resolution: "uuid@npm:8.3.2"
   bin:
