@@ -51,6 +51,7 @@ types:
             - zohocrm
             - sfdc
             - pipedrive
+            - slack
             - discord
     StandardObject:
         enum:

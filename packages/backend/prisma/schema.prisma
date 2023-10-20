@@ -13,6 +13,7 @@ enum TP_ID {
   sfdc
   pipedrive
   discord
+  slack
 }
 
 enum ENV {

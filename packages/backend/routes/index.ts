@@ -31,6 +31,10 @@ import { channelService} from '../services/chat/channel';
 import { messageService } from '../services/chat/messages';
 import { fieldMappingService } from './v1/crm/fieldMapping';
 import { propertiesService } from './properties';
+import chatRouter from './v1/chat';
+import { usersService } from '../services/chat/users';
+import { channelsService } from '../services/chat/channels';
+import { messageService } from '../services/chat/message';
 
 const router = express.Router();
 
@@ -115,7 +119,8 @@ router.post('/clerk/webhook', async (req, res) => {
 });
 
 router.use('/crm', cors(), revertAuthMiddleware(), crmRouter);
-router.use('/chat',cors(),revertAuthMiddleware(),discordChatRouter)
+
+router.use('/chat', cors(), revertAuthMiddleware(), chatRouter);
 
 register(router, {
     metadata: metadataService,
@@ -140,7 +145,7 @@ register(router, {
     connection: connectionService,
     chat: {
         users: usersService,
-        channels: channelService,
+        channels: channelsService,
         messages: messageService,
     },
 });

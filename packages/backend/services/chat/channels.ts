@@ -1,16 +1,16 @@
-import { TP_ID } from '@prisma/client';
-import { UsersService } from '../../generated/typescript/api/resources/chat/resources/users/service/UsersService';
-import { InternalServerError } from '../../generated/typescript/api/resources/common';
-import { isStandardError } from '../../helpers/error';
-import { logError, logInfo } from '../../helpers/logger';
 import revertTenantMiddleware from '../../helpers/tenantIdMiddleware';
+import { ChannelsService } from '../../generated/typescript/api/resources/chat/resources/channels/service/ChannelsService';
+import { logError, logInfo } from '../../helpers/logger';
+import { isStandardError } from '../../helpers/error';
+import { InternalServerError } from '../../generated/typescript/api/resources/common';
+import { TP_ID } from '@prisma/client';
 import axios from 'axios';
-import { unifyChatUser } from '../../models/unified/chatUsers';
+import { unifyChannel } from '../../models/unified/channel';
 import revertAuthMiddleware from '../../helpers/authMiddleware';
 
-const usersService = new UsersService(
+const channelsService = new ChannelsService(
     {
-        async getUsers(req, res) {
+        async getChannels(req, res) {
             try {
                 const connection = res.locals.connection;
                 const pageSize = parseInt(String(req.query.pageSize));
@@ -18,9 +18,8 @@ const usersService = new UsersService(
                 const thirdPartyId = connection.tp_id;
                 const thirdPartyToken = connection.tp_access_token;
                 const tenantId = connection.t_id;
-
                 logInfo(
-                    'Revert::GET ALL USERS',
+                    'Revert::GET ALL CHANNELS',
                     connection.app?.env?.accountId,
                     tenantId,
                     thirdPartyId,
@@ -33,9 +32,9 @@ const usersService = new UsersService(
                             cursor ? `&after=${cursor}` : ''
                         }`;
 
-                        const url = `https://slack.com/api/users.list?${pagingString}`;
+                        const url = `https://slack.com/api/conversations.list?${pagingString}`;
 
-                        let users: any = await axios({
+                        let channels: any = await axios({
                             method: 'get',
                             url: url,
                             headers: {
@@ -43,19 +42,18 @@ const usersService = new UsersService(
                                 Authorization: `Bearer ${thirdPartyToken}`,
                             },
                         });
-                        const nextCursor = users.data?.response_metadata?.next_cursor || undefined;
 
-                        users = users.data.members;
-                        users = users?.map((l: any) => unifyChatUser(l));
+                        const nextCursor = channels.data?.response_metadata?.next_cursor || undefined;
+                        channels = channels.data.channels;
+                        channels = channels?.map((l: any) => unifyChannel(l));
 
-                        res.send({ status: 'ok', next: nextCursor, results: users });
-
+                        res.send({ status: 'ok', next: nextCursor, results: channels });
                         break;
                     }
                 }
             } catch (error: any) {
                 logError(error);
-                console.error('Could not fetch users', error);
+                console.error('Could not fetch channels', error);
                 if (isStandardError(error)) {
                     throw error;
                 }
@@ -66,4 +64,4 @@ const usersService = new UsersService(
     [revertAuthMiddleware(), revertTenantMiddleware()]
 );
 
-export { usersService };
+export { channelsService };

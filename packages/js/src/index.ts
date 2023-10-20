@@ -189,8 +189,9 @@ const createIntegrationBlock = function (self, integration) {
 
     const image = document.createElement('img');
     image.src = integration.imageSrc;
-    image.height = 62;
+    image.style.height = '62px';
     image.style.pointerEvents = 'none';
+    image.style.objectFit = 'scale-down';
     integrationConnect.appendChild(image);
     if (isInActive) {
         image.style.filter = 'gray';
@@ -359,7 +360,7 @@ const createIntegrationBlock = function (self, integration) {
                         color: '#777',
                     }),
                     [],
-                    'Select CRM'
+                    'Select tool to integrate'
                 );
                 headerDiv.appendChild(headerText);
                 headerDiv.appendChild(closeButton);
