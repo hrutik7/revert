@@ -116,7 +116,15 @@ authRouter.get('/oauth-callback', async (req, res) => {
                 });
                 // Svix stuff goes here ****
 
-                res.send({ status: 'ok', tp_customer_id: info.data.user?.id});
+                await pubsub.publish(`${PUBSUB_CHANNELS.INTEGRATION_STATUS}_${req.query.t_id}`, {
+                    publicToken: revertPublicKey,
+                    status: 'SUCCESS',
+                    integrationName: mapIntegrationIdToIntegrationName[integrationId],
+                    tenantId: req.query.t_id,
+                    tenantSecretToken,
+                } as IntegrationStatusSseMessage);
+
+                res.send({ status: 'ok', tp_customer_id: info.data.user });
             } catch (error: any) {
                 logError(error);
 
